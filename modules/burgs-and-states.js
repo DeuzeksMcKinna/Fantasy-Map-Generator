@@ -358,6 +358,38 @@ window.BurgsAndStates = (function () {
 
     TIME && console.timeEnd("drawBurgs");
   };
+  //starts test code
+// Define the constants separately
+let minpop = 1000 / populationRate;
+let maxpop = null / populationRate;
+
+// Define the function to filter and move burgs
+// Define the constants separately
+let minpop = 1000 / populationRate;
+let maxpop = null / populationRate;
+
+// Define the function to filter and move burgs
+const filterAndMoveBurgs = (burgs) => {
+  // Filter the burgs based on certain conditions using the previously defined constants
+  const filteredBurgs = burgs.filter(b => 
+    b.cell && 
+    b.port && 
+    !b.citadel && 
+    b.walls && 
+    b.plaza && 
+    b.temple && 
+    b.shanty && 
+    b.population >= minpop && 
+    b.population <= maxpop && 
+    !b.capital
+  );
+
+  // Move the filtered burgs to the 'towns' group
+  filteredBurgs.forEach(b => moveBurgToGroup(b.i, 'towns'));
+
+
+  //ends test code
+  
 
   // expand cultures across the map (Dijkstra-like algorithm)
   const expandStates = function () {
